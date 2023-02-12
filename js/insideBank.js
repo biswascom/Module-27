@@ -21,3 +21,25 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
 
     money.value = '';
 });
+
+// Withdraw section
+
+document.getElementById('btn-withdraw').addEventListener('click', function(){
+    const money = document.getElementById('input-withdraw');
+    const inputMoneyString = money.value;
+    const inputMoney = parseFloat(inputMoneyString);
+
+    const withdrawValue = document.getElementById('withdraw');
+    const withdrawValueString = withdrawValue.innerText;
+    const withdrawValuePrevious = parseFloat(withdrawValueString);
+
+    const totalWithdraw = withdrawValuePrevious + inputMoney;
+    withdrawValue.innerText = totalWithdraw;
+
+    const availableBalance = document.getElementById('available-balance');
+    const availableBalanceString = availableBalance.innerText;
+    const availableBalancePrevious = parseFloat(availableBalanceString);
+
+    const totalAvailableBalance = availableBalancePrevious - inputMoney;
+    availableBalance.innerText = totalAvailableBalance;
+});
